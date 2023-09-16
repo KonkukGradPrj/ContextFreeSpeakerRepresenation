@@ -5,5 +5,5 @@ advised by professor Eunyi Kim.
 - Members
   - Hyeonseo Cho (team lead)
   - Yongjin Kim
-  - Junyoung Kim
+  - Junwon Kim
 
