@@ -1,4 +1,5 @@
-# Out-of-Distribution-Interference-Neutralization
+# RealTimeLeadSpeakerTranscript
+Real-time Transcription of Primary Speaker in Multi-speaker Settings.
 
 ### Graduation Prject
 advised by professor Eunyi Kim.
