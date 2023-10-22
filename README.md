@@ -1,5 +1,5 @@
-# RealTimeLeadSpeakerTranscript
-Real-time Transcription of Primary Speaker in Multi-speaker Settings.
+# ContextFreeSpeakerRepresenation
+Context-Free Speaker Represenation for target voice isolation.
 
 ### Graduation Prject
 advised by professor Eunyi Kim.
