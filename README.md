@@ -1,5 +1,5 @@
 # Context-Free Speaker Representation for Target Voice Isolation
-Real-time Transcription of Primary Speaker in Multi-speaker Settings.
+Context-Free Speaker Representation for Target Voice Isolation in multi-voice environment
 
 ### Graduation Prject
 advised by professor Eunyi Kim.
