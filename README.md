@@ -1,4 +1,4 @@
-# RealTimeLeadSpeakerTranscript
+# Context-Free Speaker Representation for Target Voice Isolation
 Real-time Transcription of Primary Speaker in Multi-speaker Settings.
 
 ### Graduation Prject
