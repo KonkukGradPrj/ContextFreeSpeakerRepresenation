@@ -2,9 +2,9 @@ import torch.utils.data as data
 import torchaudio
 import os
 
-class SepaEval(data.Dataset):
+class TargetIsolationTestDataset(data.Dataset):
     def __init__(self, directory):
-        super(SepaEval, self).__init__()
+        super(TargetIsolationTestDataset, self).__init__()
         self.directory = directory
         self.mixed_files = sorted([f for f in os.listdir(directory) if f.startswith('mixed_eval_') and f.endswith('.wav')])
         self.text_files = sorted([f for f in os.listdir(directory) if f.startswith('mixed_eval_') and f.endswith('.txt')])
