@@ -16,7 +16,7 @@ class SpeakerRepresentationDataset(data.Dataset):
         mixed_path = os.path.join(self.directory, self.mixed_files[index])
         text_path = os.path.join(self.directory, self.text_files[index])
 
-        mixed_waveform, _ = torchaudio.load(mixed_path)
+        mixed_waveform, _ = torchaudio.load(mixed_path)c
         with open(text_path, 'r') as f:
             text = f.read().strip()
 
