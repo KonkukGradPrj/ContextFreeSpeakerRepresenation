@@ -8,3 +8,5 @@ advised by professor Eunyi Kim.
   - Yongjin Kim
   - Junwon Kim
 
+### Environment
+pip install -r requirements.txt
