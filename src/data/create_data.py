@@ -17,10 +17,10 @@ def adjust_noise_length(noise_wave, target_length):
 def add_noise(dataset, source_wave, source_id):
     mixed_wave = source_wave.clone()
     noise_rate = 0.0
-    rate_lst = [0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.5]
+    rate_lst = [0.1, 0.1]
     source_length = source_wave.shape[1]  # Get the length of the source_wave once
 
-    while noise_rate < 1.0:
+    while noise_rate < 0.5:
         index = random.randint(0, len(dataset) - 1)
         noise_wave, _, _, noise_id, _, _ = dataset[index]
 
@@ -67,7 +67,6 @@ def make_trainset():
         # Save the script to a text file
         with open(f"{filename_prefix}_script.txt", 'w') as f:
             f.write(source_script)
-
 
 
 def make_testset():
