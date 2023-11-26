@@ -1,4 +1,4 @@
-from models import encoder,projector
+gitfrom models import encoder,projector
 from losses.vicreg import vicreg_loss_func
 from dataloader import AudioDataset,AudioTestDataset
 import torch
