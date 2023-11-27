@@ -212,7 +212,7 @@ class SpeakerNet(nn.Module):
 
         return (all_scores, all_labels, all_trials);
 
-    def get_embedding(self,input_file,enrolled,root_path='', num_eval=10, eval_frames=0):
+    def get_embedding(self, input_file, enrolled, root_path='', num_eval=10, eval_frames=0):
         
         feats = dict()
         inp = torch.FloatTensor(loadWAV(input_file, eval_frames, evalmode=True, num_eval=num_eval)).cuda()
@@ -233,7 +233,7 @@ class SpeakerNet(nn.Module):
 
         sim = cos_sim(ref_inp_feat,enroll)
         
-        return (feats,sim)
+        return (feats, sim)
 
     def _normalize_vector(self,tensor):
         norm = torch.linalg.norm(tensor)

@@ -6,7 +6,7 @@ from SpeakerNet import SpeakerNet
 import torchaudio
 
 class model_for_gradio():
-    def __init__(self, input_file, enrolled_file):
+    def __init__(self,input_file,enrolled_file):
         self.input_file = input_file
         self.enrolled_file = enrolled_file
         self.model = SpeakerNet(lr = 0.0001, model="ResNetSE34L", nOut = 512, encoder_type = 'SAP', normalize = True, unif_loss='uniform', sim_loss='anglecontrast', lambda_u=1, lambda_s=1, t=2, sample_type='PoN');
