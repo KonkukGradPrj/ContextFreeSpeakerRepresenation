@@ -7,15 +7,17 @@ import math
 import random
 from scipy.io import wavfile
 
-def loadWAV(filename, max_frames, evalmode=True, num_eval=10):
+def loadWAV(file, max_frames, evalmode=True, num_eval=10):
 
     # Maximum audio length
     max_audio = max_frames * 160 + 240
 
     # Read wav file and convert to torch tensor
-    sample_rate, audio  = wavfile.read(filename)
-
+    #sample_rate, audio  = wavfile.read(filename)
+    audio = file
+    
     audiosize = audio.shape[0]
+    
 
     if audiosize <= max_audio:
         shortage    = math.floor( ( max_audio - audiosize + 1 ) / 2 )

@@ -212,35 +212,27 @@ class SpeakerNet(nn.Module):
 
         return (all_scores, all_labels, all_trials);
 
-    def get_embedding(self,input_path,enrolled_path,root_path='', num_eval=10, eval_frames=200):
-
+    def get_embedding(self,input_file,enrolled,root_path='', num_eval=10, eval_frames=0):
+        
         feats = dict()
-        inp = torch.FloatTensor(loadWAV(os.path.join(root_path,input_path), eval_frames, evalmode=True, num_eval=num_eval)).cuda()
-        enroll = torch.FloatTensor(loadWAV(os.path.join(root_path,enrolled_path), eval_frames, evalmode=True, num_eval=num_eval)).cuda()
-
+        inp = torch.FloatTensor(loadWAV(input_file, eval_frames, evalmode=True, num_eval=num_eval)).cuda()
+        enroll = torch.FloatTensor(loadWAV(enrolled, eval_frames, evalmode=True, num_eval=num_eval)).cpu()
+        
         with torch.no_grad():
 
             inp_feat = self.torchfb(inp)+1e-6
             inp_feat = self.instancenorm(inp_feat.log()).unsqueeze(1).detach()
 
-            enroll_feat = self.torchfb(enroll)+1e-6
-            enroll_feat = self.instancenorm(enroll_feat.log()).unsqueeze(1).detach()
-
             ref_inp_feat = self.__S__.forward(inp_feat).detach().cpu()
-    
             ref_inp_feat = self._normalize_vector(ref_inp_feat)
-            
-            ref_enroll_feat = self.__S__.forward(enroll_feat).detach().cpu()
-
-            ref_enroll_feat = self._normalize_vector(ref_enroll_feat)
 
         cos_sim = nn.CosineSimilarity(dim=1, eps=1e-08)
         #sim = torch.dot(ref_inp_feat.squeeze(0),ref_enroll_feat.squeeze(0))
         feats['inp'] = ref_inp_feat
-        feats['enroll'] = ref_enroll_feat
+        feats['enroll'] = enroll
 
-        sim = cos_sim(ref_inp_feat,ref_enroll_feat)
-
+        sim = cos_sim(ref_inp_feat,enroll)
+        
         return (feats,sim)
 
     def _normalize_vector(self,tensor):
