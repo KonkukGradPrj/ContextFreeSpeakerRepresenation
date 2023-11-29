@@ -286,3 +286,4 @@ class SpeakerNet(nn.Module):
                 continue;
 
             self_state[name].copy_(param);
+

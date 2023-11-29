@@ -18,7 +18,6 @@ def loadWAV(file, max_frames, evalmode=True, num_eval=10):
     
     audiosize = audio.shape[0]
     
-
     if audiosize <= max_audio:
         shortage    = math.floor( ( max_audio - audiosize + 1 ) / 2 )
         audio       = numpy.pad(audio, (shortage, shortage), 'constant', constant_values=0)
